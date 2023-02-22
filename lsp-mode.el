@@ -2260,6 +2260,7 @@ WORKSPACE is the workspace that contains the diagnostics."
     (setf params (funcall lsp-diagnostic-filter params workspace)))
 
   (lsp--on-diagnostics-update-stats workspace params)
+  ;; (cl-struct-slot-value 'lsp--client 'server-id (cl-struct-slot-value 'lsp--workspace 'client workspace)) => ruff-lsp
 
   (-let* (((&PublishDiagnosticsParams :uri :diagnostics) params)
           (lsp--virtual-buffer-mappings (ht))
