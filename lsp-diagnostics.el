@@ -175,7 +175,7 @@ CALLBACK is the status callback passed by Flycheck."
        (funcall callback 'finished)))
 
 (defun lsp-diagnostics--flycheck-buffer ()
-  "Trigger flyckeck on buffer."
+  "Trigger flycheck on buffer."
   (remove-hook 'lsp-on-idle-hook #'lsp-diagnostics--flycheck-buffer t)
   (when (bound-and-true-p flycheck-mode)
     (flycheck-buffer)))
